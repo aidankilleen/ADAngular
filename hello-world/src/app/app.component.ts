@@ -11,7 +11,9 @@ import { Message } from './message/message.model';
     <hr>
     <message 
       *ngFor="let message of messages"
-      [message]="message">
+      [message]="message"
+      (expanded)="onExpanded()"
+      (deleteMessage)="onDelete($event)">
     </message>
     `,
   styleUrls: ['./app.component.css']
@@ -26,13 +28,24 @@ export class AppComponent {
     new Message("Msg 3", "this is msg 3")
   ];
 
+  onExpanded() {
+    alert("expanded");
+  }
+  onDelete(messageToDelete:Message) {
+
+    let index = this.messages.findIndex(message => message == messageToDelete);
+    this.messages.splice(index, 1);
+  }
+  
   onClick() {
+
     let newMessage = new Message("NM", new Date().toISOString());
     this.messages.push(newMessage);
+
+
   }
 
   onClear() {
-
     this.messages = [];    
   }
 }
