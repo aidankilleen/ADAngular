@@ -9,4 +9,9 @@ export class AccordionItem {
         this.text = text;
         this.expanded = expanded;
     }
+
+    doSomething(value: string = "default value", 
+                optionalParameter ?: string): string {
+        return `some value ${value} ${optionalParameter}`;
+    }
 }
