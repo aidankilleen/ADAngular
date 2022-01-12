@@ -8,8 +8,8 @@ import { User } from '../user.model';
       Name:<input [(ngModel)]="user.name"><br>
       Email:<input [(ngModel)]="user.email"><br>
       Active:<input type="checkbox" [(ngModel)]="user.active"><br>
-      <button (click)="onSave()">Save</button>
-      <button (click)="onCancel()">Cancel</button>
+      <button class="btn btn-primary" (click)="onSave()">Save</button>
+      <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
     </div>`,
   styleUrls: ['./user.component.css']
 })
