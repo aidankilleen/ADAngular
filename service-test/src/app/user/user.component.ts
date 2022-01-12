@@ -4,20 +4,26 @@ import { User } from '../user.model';
 @Component({
   selector: 'user',
   template: `<div>
-      <h2>Add User</h2>   
+      <h2>{{ title }}</h2>   
       Name:<input [(ngModel)]="user.name"><br>
       Email:<input [(ngModel)]="user.email"><br>
       Active:<input type="checkbox" [(ngModel)]="user.active"><br>
       <button (click)="onSave()">Save</button>
+      <button (click)="onCancel()">Cancel</button>
     </div>`,
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
 
+  @Input() title: string = "Add User";
   @Input() user:User = new User();
   @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
   constructor() { }
 
+  onCancel() {
+    this.cancelled.emit();
+  }
   onSave() {
     this.saved.emit(this.user);
   }

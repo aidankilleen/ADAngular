@@ -21,13 +21,20 @@ export class UserService {
   }
 
   getUsers(): Observable<User[]> {
-    return this.httpClient.get(this.url) as Observable<User[]>;
+    return this.httpClient
+      .get(this.url) as Observable<User[]>;
   }
   deleteUser(id: number) {
-    return this.httpClient.delete(`${this.url}/${id}`);
+    return this.httpClient
+      .delete(`${this.url}/${id}`);
   }
   addUser(newUser: User): Observable<User> {
-    return this.httpClient.post(this.url, newUser) as Observable<User>;
+    return this.httpClient
+      .post(this.url, newUser) as Observable<User>;
+  }
+  updateUser(userToUpdate: User): Observable<User> {
+    return this.httpClient
+      .put(`${this.url}/${userToUpdate.id}`, userToUpdate) as Observable<User>;
   }
 
   testHttpRequest() {
