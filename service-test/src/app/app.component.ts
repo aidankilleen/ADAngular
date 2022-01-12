@@ -29,6 +29,12 @@ import { UserService } from './user.service';
       </tbody>
 
     </table>
+    <user *ngIf="adding" 
+          [user]="newUser"
+          (saved)="onSaved($event)">
+
+    </user>
+    <button (click)="onAdd()">Add User</button>
     <button (click)="onClick()">Test Ajax Call</button>
   `,
   styleUrls: ['./app.component.css']
@@ -36,7 +42,24 @@ import { UserService } from './user.service';
 export class AppComponent implements OnInit {  
   title = 'service-test';
   users: User[] = [];
+  adding = false;
+  newUser: User = new User();
 
+  onSaved(newUser:User) {
+    // TBD - need to make the ajax call
+    this.userService.addUser(newUser)
+    .subscribe((addedUser)=> {
+      this.users.push(addedUser);
+      this.newUser = new User();
+      this.adding = false;
+  
+    })
+
+  }
+  onAdd() {
+    this.adding = true;
+    this.newUser = new User();
+  }
   onDelete(id: number) {
     if (confirm(`you clicked delete ${id}`)) {
 

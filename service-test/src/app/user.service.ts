@@ -26,6 +26,9 @@ export class UserService {
   deleteUser(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
+  addUser(newUser: User): Observable<User> {
+    return this.httpClient.post(this.url, newUser) as Observable<User>;
+  }
 
   testHttpRequest() {
     this.httpClient.get(this.url)

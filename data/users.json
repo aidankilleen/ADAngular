@@ -23,6 +23,18 @@
       "name": "Dan",
       "email": "dan@gmail.com",
       "active": true
+    },
+    {
+      "id": 5,
+      "name": "New User",
+      "email": "new.user@gmail.com",
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Another User",
+      "email": "another@gmaill.com",
+      "active": true
     }
   ]
 }
