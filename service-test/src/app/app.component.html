@@ -1,44 +1,28 @@
 <h1>Users</h1>
   
-<ngb-accordion [closeOthers]="true" activeIds="static-1">
-  <ngb-panel id="static-1" title="Simple">
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-      labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel id="static-2">
-    <ng-template ngbPanelTitle>
-      <span>&#9733; <b>Fancy</b> title &#9733;</span>
-    </ng-template>
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-      labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-  <ngb-panel id="static-3" title="Disabled" [disabled]="true">
-    <ng-template ngbPanelContent>
-      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-      aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-      sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-      craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-      occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-      labore sustainable VHS.
-    </ng-template>
-  </ngb-panel>
-</ngb-accordion>
 
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <user
+      [user]="newUser"
+      title="Add User"
+      (saved)="onSaved($event)"
+      (cancelled)="modal.close('cancelled')"
+    ></user>
 
+  </div>
+  <div class="modal-footer">
+  </div>
+</ng-template>
 
+<button class="btn btn-primary" (click)="onAdd(content)">Add User</button>
 
     <table class="table">
       <thead>
@@ -76,4 +60,3 @@
           title="Edit User">
     </user>
 
-    <button class="btn btn-primary" (click)="onAdd()">Add User</button>

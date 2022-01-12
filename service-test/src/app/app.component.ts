@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { User } from './user.model';
 import { UserService } from './user.service';
 
@@ -15,9 +16,39 @@ export class AppComponent implements OnInit {
   newUser: User = new User();
   userToEdit: User = new User();
 
-  constructor(public userService: UserService) {
+  constructor(public userService: UserService, 
+              public modalService: NgbModal) {
   }
 
+  
+  onAdd(content: any) {
+
+    this.newUser = new User();
+    this.modalService.open(content)
+    .result
+    .then(result => {
+      console.log("modal closed");
+      // called if modal.close is called
+      alert(result);
+    })
+    .catch(reason => {
+      // called if x, esc or click off modal
+      alert(reason);
+    });
+  }
+  
+  onSaved(newUser:User) {
+    console.log("saving the new user...");
+    this.userService.addUser(newUser)
+      .subscribe((addedUser)=> {
+        this.users.push(addedUser);
+        this.newUser = new User();
+
+        // close the modal 
+        //this.modal.close("saved");
+
+      });
+  }
   ngOnInit(): void {
     this.userService.getUsers()
       .subscribe(users => {
@@ -57,19 +88,7 @@ export class AppComponent implements OnInit {
       });
   }
 
-  onSaved(newUser:User) {
-    this.userService.addUser(newUser)
-      .subscribe((addedUser)=> {
-        this.users.push(addedUser);
-        this.newUser = new User();
-        this.adding = false;
-      });
-  }
 
-  onAdd() {
-    this.adding = true;
-    this.newUser = new User();
-  }
 
   onDelete(id: number) {
     if (confirm(`you clicked delete ${id}`)) {
