@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promise</h1>
+
+    <script>
+
+    function doAsynchronousOperation() {
+
+        let p = new Promise(function(resolve, reject) {
+
+            if (Math.random() > 0.7) {
+                reject(); 
+            } else {
+                setTimeout(()=>{
+                    console.log("setTimeout() complete");
+
+                    resolve();
+                }, 3000);     
+
+            }
+        });
+        return p;
+    }
+
+    console.log("starting...");
+
+    doAsynchronousOperation()
+    .then(() => {
+        console.log("notified that asyncronous operation is complete");
+    })
+    .catch(() => {
+        console.log("something went wrong in asynchronous operation");
+    });
+
+    console.log("finished");
+
+    </script>
+</body>
+</html>
