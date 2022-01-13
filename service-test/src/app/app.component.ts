@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   editing = false;
   newUser: User = new User();
   userToEdit: User = new User();
+  modal: NgbModalRef;
+
 
   constructor(public userService: UserService, 
               public modalService: NgbModal) {
@@ -24,16 +26,16 @@ export class AppComponent implements OnInit {
   onAdd(content: any) {
 
     this.newUser = new User();
-    this.modalService.open(content)
-    .result
+    this.modal = this.modalService.open(content);
+    this.modal.result
     .then(result => {
       console.log("modal closed");
       // called if modal.close is called
-      alert(result);
+      //alert(result);
     })
     .catch(reason => {
       // called if x, esc or click off modal
-      alert(reason);
+      //alert(reason);
     });
   }
   
@@ -45,7 +47,7 @@ export class AppComponent implements OnInit {
         this.newUser = new User();
 
         // close the modal 
-        //this.modal.close("saved");
+        this.modal.close("closed");
 
       });
   }
@@ -65,7 +67,7 @@ export class AppComponent implements OnInit {
     this.adding = false;
   }
 
-  onEdit(userToEdit: User) {
+  onEdit(userToEdit: User, content: any) {
     // this.usertoEdit = userToEdit -> reference to the item in the list
 
     // make a clone of the item in the list so that changes 
@@ -76,6 +78,8 @@ export class AppComponent implements OnInit {
           userToEdit.email, 
           userToEdit.active);
     this.editing = true;
+    this.modal = this.modalService.open(content);
+
   }
 
   onUpdated(userToUpdate: User) {
@@ -85,6 +89,7 @@ export class AppComponent implements OnInit {
         this.users.splice(index, 1, updatedUser);
         this.userToEdit = new User();
         this.editing = false;
+        this.modal.close("updated");
       });
   }
 

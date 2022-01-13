@@ -11,12 +11,18 @@
   </div>
   <div class="modal-body">
     <user
+      *ngIf="!editing"
       [user]="newUser"
       title="Add User"
       (saved)="onSaved($event)"
       (cancelled)="modal.close('cancelled')"
     ></user>
-
+    <user *ngIf="editing"
+          [user]="userToEdit"
+          (saved)="onUpdated($event)"
+          (cancelled)="modal.close('cancelled')"
+          title="Edit User">
+    </user>    
   </div>
   <div class="modal-footer">
   </div>
@@ -42,21 +48,10 @@
           <td>{{user.active ? 'Active' : 'Inactive'}}</td>
           <td>
             <button class="btn btn-danger" (click)="onDelete(user.id)">X</button>
-            <button class="btn btn-success" (click)="onEdit(user)">Edit</button>
+            <button class="btn btn-success" (click)="onEdit(user, content)">Edit</button>
           </td>
         </tr>
       </tbody>
     </table>
-    <user *ngIf="adding" 
-          [user]="newUser"
-          (saved)="onSaved($event)"
-          (cancelled)="onCancelAdd()">
-    </user>
   
-    <user *ngIf="editing"
-          [user]="userToEdit"
-          (saved)="onUpdated($event)"
-          (cancelled)="onCancelEdit()"
-          title="Edit User">
-    </user>
 

@@ -4,7 +4,7 @@
       "id": 99,
       "name": "Alice",
       "email": "alice@gmail.com",
-      "active": false
+      "active": true
     },
     {
       "id": 87,
@@ -23,48 +23,6 @@
       "name": "Dan",
       "email": "dan@gmail.com",
       "active": true
-    },
-    {
-      "id": 5,
-      "name": "changed user",
-      "email": "new.user@gmail.com",
-      "active": false
-    },
-    {
-      "id": 6,
-      "name": "Another User",
-      "email": "another@gmaill.com",
-      "active": true
-    },
-    {
-      "id": 100,
-      "name": "Added User",
-      "email": "added.user@gmail.com",
-      "active": true
-    },
-    {
-      "id": 101,
-      "name": "Another User",
-      "email": "yet.another.user@gmail.com",
-      "active": true
-    },
-    {
-      "id": 102,
-      "name": "New User",
-      "email": "new.user@gmail.com",
-      "active": false
-    },
-    {
-      "id": 103,
-      "name": "sdfsfd",
-      "email": "sdfsdfds",
-      "active": false
-    },
-    {
-      "id": 104,
-      "name": "sdfadsf",
-      "email": "",
-      "active": false
     }
   ]
 }
