@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { UsersPageComponent } from './users-page/users-page.component';
 import { UserDetailPageComponent } from './user-detail-page/user-detail-page.component';
 import { UserComponent } from './user/user.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { MainNavBsComponent } from './main-nav-bs/main-nav-bs.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,14 @@ import { UserComponent } from './user/user.component';
     ContactPageComponent,
     UsersPageComponent,
     UserDetailPageComponent,
-    UserComponent
+    UserComponent,
+    MainNavComponent,
+    MainNavBsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

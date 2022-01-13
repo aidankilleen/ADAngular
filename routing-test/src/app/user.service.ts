@@ -22,4 +22,9 @@ export class UserService {
     return this.httpClient  
       .get(`${this.url}/${id}`) as Observable<User>;
   }
+
+  deleteUser(id: number) {
+    return this.httpClient  
+      .delete(`${this.url}/${id}`);
+  }
 }

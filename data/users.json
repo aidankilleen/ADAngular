@@ -17,12 +17,6 @@
       "name": "Carol",
       "email": "carol@gmail.com",
       "active": true
-    },
-    {
-      "id": 11,
-      "name": "Dan",
-      "email": "dan@gmail.com",
-      "active": true
     }
   ]
 }
