@@ -17,11 +17,9 @@ export class AppComponent implements OnInit {
   userToEdit: User = new User();
   modal: NgbModalRef;
 
-
   constructor(public userService: UserService, 
               public modalService: NgbModal) {
   }
-
   
   onAdd(content: any) {
 
@@ -92,8 +90,6 @@ export class AppComponent implements OnInit {
         this.modal.close("updated");
       });
   }
-
-
 
   onDelete(id: number) {
     if (confirm(`you clicked delete ${id}`)) {

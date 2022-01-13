@@ -23,6 +23,12 @@
       "name": "Dan",
       "email": "dan@gmail.com",
       "active": true
+    },
+    {
+      "id": 100,
+      "name": "",
+      "email": "",
+      "active": false
     }
   ]
 }

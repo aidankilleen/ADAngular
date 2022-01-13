@@ -13,7 +13,7 @@ import { User } from '../user.model';
     </div>`,
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserEditComponent implements OnInit {
 
   @Input() title: string = "Add User";
   @Input() user:User = new User();
