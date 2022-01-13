@@ -6,17 +6,25 @@ import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsersPageComponent } from './users-page/users-page.component';
+import { UserDetailPageComponent } from './user-detail-page/user-detail-page.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     AboutPageComponent,
-    ContactPageComponent
+    ContactPageComponent,
+    UsersPageComponent,
+    UserDetailPageComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

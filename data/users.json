@@ -10,25 +10,19 @@
       "id": 87,
       "name": "Bob",
       "email": "bob@gmail.com",
-      "active": false
+      "active": true
     },
     {
       "id": 22,
       "name": "Carol",
       "email": "carol@gmail.com",
-      "active": false
+      "active": true
     },
     {
       "id": 11,
       "name": "Dan",
       "email": "dan@gmail.com",
       "active": true
-    },
-    {
-      "id": 100,
-      "name": "",
-      "email": "",
-      "active": false
     }
   ]
 }
